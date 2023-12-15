@@ -1,0 +1,54 @@
+<div class="signup flex w-full h-screen justify-center items-center">
+  <form action="" class="" (ngSubmit)="signupSubmit()">
+    <div class="w-full justify-center items-center">
+      <h1 class="text-3xl font-medium uppercase underline py-10">sign up</h1>
+    </div>
+    <div class="lg:flex capitalize gap-5 p-5">
+      <div class="flex flex-col gap-5">
+        <div *ngFor="let x of inputBoxFirst">
+          <app-inputbox
+            [inputId]="x.inputId"
+            [inputType]="x.inputType"
+            [labelName]="x.labelName"
+            [inputPlaceHolder]="x.inputPlaceHolder"
+            [inputFormControlName]="x.inputId"
+            [form]="signupForm"
+          ></app-inputbox>
+        </div>
+        <label for="gender"> gender </label>
+        <form [formGroup]="form" class="flex">
+          <input type="radio" id="male" inputFormControlName="gender" name="gender" value="male" />
+            <label for="male">male</label><br />
+           
+          <input type="radio" id="female" inputFormControlName="gender" name="gender" value="female" />  
+          <label for="female">female</label><br />
+            <input type="radio" id="other" inputFormControlName="gender" name="gender" value="other" />  
+          <label for="other">other</label>
+        </form>
+      </div>
+
+      <div class="flex flex-col gap-5">
+        <div *ngFor="let x of inputBoxSecond">
+          <app-inputbox
+            [inputId]="x.inputId"
+            [inputType]="x.inputType"
+            [labelName]="x.labelName"
+            [inputPlaceHolder]="x.inputPlaceHolder"
+            [inputFormControlName]="x.inputId"
+            [form]="signupForm"
+          ></app-inputbox>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex justify-center capitalize py-10 gap-10">
+      <p>back to home</p>
+      <button
+        [disabled]="signupForm.invalid"
+        class="signin disabled:cursor-not-allowed capitalize w-20 bg-blue-500 h-10 rounded text-black hover:bg-black hover:text-white text-lg font-medium"
+      >
+        register
+      </button>
+    </div>
+  </form>
+</div>
